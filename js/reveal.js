@@ -39,8 +39,8 @@
 
 			// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
-			width: 960,
-			height: 700,
+			width: 1200,
+			height: 800,
 
 			// Factor of the display size that should remain empty around the content
 			margin: 0.04,
@@ -64,7 +64,7 @@
 			controlsBackArrows: 'faded',
 
 			// Display a presentation progress bar
-			progress: true,
+			progress: false,
 
 			// Display the page number of the current slide
 			// - true:    Show slide number
@@ -203,7 +203,7 @@
 			// Specify the average time in seconds that you think you will spend
 			// presenting each slide. This is used to show a pacing timer in the
 			// speaker view
-			defaultTiming: null,
+			defaultTiming: 120,
 
 			// Enable slide navigation via mouse wheel
 			mouseWheel: false,
