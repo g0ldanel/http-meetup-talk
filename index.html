@@ -1,155 +1,275 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>¿Qué pasa cuando nos conectamos a una web? (versión SpeedRun)</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<title>¿Qué pasa cuando nos conectamos a una web? (versión SpeedRun)</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/monokai.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
 
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h4>¿Qué pasa cuando nos conectamos a una web?</h4>
-          <h5>(versión SpeedRun)</h5>
-          <div id="photo">
-            <img src="images/bg-1.jpg" alt="" style="width:100%">
-            <a style="right:0px;background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@markusspiske?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Markus Spiske"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Photo credit Markus Spiske</span></a>
-          </div>
-        </section>
-
-
-
-        <section>
-          <h2>WhoAmI?</h2>
-          <hr/>
-          <ul>
-            <li><strong>Name</strong>: Víctor</li>
-            <li><strong>Twitter</strong>: g0ldanel</li>
-            <li><strong>Profesión</strong>: ¿FullStack developer?</li>
-          </ul>
-          <p><small><em>Un señor con un sentido del humor muy refinado</em></small></p>
-        </section>
-        
-        <section>
-          <h2>HTTP 101</h2>
-          <section>
-            <p class="fragment fade-up" data-fragment-index="1"><h4><em>HyperText Transfer Protocol</em></h4></p>
-            <p class="fragment fade-up" data-fragment-index="2">Es un protocolo que en sus inicios fueconstruido sobre TCP para servir contenidos (cada vez m'as) amigables y visuales, en vez de los mensajes de texto plano.</p>
-          </section>
-          <section>
-            <h4>Se compone de dos partes:</h4>
-            <div class="col-md-6">
-              <h4>Request</h4>
-              <hr/>
-              <div class="col-md-3 small">request line</div>
-              <div class="col-md-9"><pre><code class="hljs" >
-                GET / HTTP/1.1
-              </code></pre></div>
-              <div class="col-md-3">headers</div>
-              <div class="col-md-9"><pre><code class="hljs" >
-                Host: wordpress.org<br/>
-                User-Agent: curl<br/>
-                Accept: */* 
-              </code></pre></div>
-            </div>
-            <div class="col-md-6">
-              <h4>Response</h4>
-              <hr/>
-              <div class="col-md-12 small">HTTP/1.1 200 OK</div>
-              <div class="col-md-9"><pre><code class="hljs" >
-                GET / HTTP/1.1
-              </code></pre></div>
-              <div class="col-md-12"><pre><code class="hljs" >
-                Cache-control: max-age: 604800
-                Content-type: text/html 
-              </code></pre></div>
-            </div>
-          </section>
-          <section></section>
-          <section></section>
-          <section></section>
-          <section></section>            
-        </section>
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h4>¿Qué pasa cuando nos conectamos a una web?</h4>
+				<h5>(versión SpeedRun)</h5>
+				<div id="photo">
+					<img src="images/bg-1.jpg" alt="" style="width:100%">
+					<a style="right:0px;background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@markusspiske?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Markus Spiske"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Photo credit Markus Spiske</span></a>
+				</div>
+			</section>
 
 
-        <section>
-          <h2>DNS</h2>
-          <section
-            <h3>Domain Name System</h3>
-            
-          </section>
-          <section></section>
-          <section></section>
-          <section></section>
-          <section></section>
-          <section></section>
-        </section>
-        <section>UDP 101</section>
-        <section>TCP 101</section>
-        <section>IP 101 (and beyond)</section>
-        
+
+			<section>
+				<h2>WhoAmI?</h2>
+				<hr/>
+				<ul>
+					<li><strong>Name</strong>: Víctor</li>
+					<li><strong>Twitter</strong>: g0ldanel</li>
+					<li><strong>Profesión</strong>: ¿FullStack developer?</li>
+				</ul>
+				<p><small><em>Un señor con un sentido del humor muy refinado</em></small></p>
+			</section>
+
+			<section>
+				<h2>HTTP 101</h2>
+				<section>
+					<p class="fragment fade-up" data-fragment-index="1"><h4><em>HyperText Transfer Protocol</em></h4></p>
+					<p class="fragment fade-up" data-fragment-index="2">Es un protocolo que en sus inicios fue construido sobre TCP para servir contenidos (cada vez más) amigables y visuales, en vez de los paquetes de datos en texto plano que se venían dando.</p>
+				</section>
+				<section>
+					<h4>Se compone de dos partes:</h4>
+					<div class="col-md-6">
+						<h4>Request</h4>
+						<hr/>
+						<div class="col-md-3 small">request line</div>
+						<div class="col-md-9"><pre><code class="hljs" data-trim data-noescape >
+							GET / HTTP/1.1
+						</code></pre></div>
+						<hr/>
+						<div class="col-md-3">headers</div>
+						<div class="col-md-9"><pre><code class="hljs" data-trim data-noescape >
+							Host: wordpress.org
+							User-Agent: curl
+							Accept: */*
+						</code></pre></div>
+					</div>
+					<div class="col-md-6">
+						<h4>Response</h4>
+						<hr/>
+						<div class="col-md-9"><pre><code class="hljs" data-trim data-noescape >
+							HTTP/1.1 200 OK
+						</code></pre></div>
+
+						<div class="col-md-12"><pre><code class="hljs" data-trim data-noescape >
+							Cache-control: max-age: 604800
+							Content-type: text/html
+						</code></pre></div>
+					</div>
+				</section>
+				<section>
+					<h3>HTTP requests</h3>
+					<span class="fragment highlight-blue" data-fragment-index="1">https://</span>
+					<span class="fragment highlight-red" data-fragment-index="2">wordpress.org</span>
+					<span class="fragment highlight-green" data-fragment-index="3">:443</span>
+					<span class="fragment highlight-" data-fragment-index="4">/themes/happy-wedding-day/</span>
+					<span class="fragment highlight-" data-fragment-index="5">?id=1234</span>
+					<span class="fragment highlight-" data-fragment-index="6">#ornitorrinco</span>
+					<ul class="fragment" data-fragment-index="7">
+						<li>Protocolo: HTTP/S, FTP...</li>
+						<li>Dominio/Hostname: El nombre de la máquina a la que se le hace el request/petición</li>
+						<li>Puerto: ...de acceso</li>
+						<li>Path/Resource: Recursos específico dentro del Host al que se quiere acceder</li>
+						<li>Query: Parámetros de consulta adicionales</li>
+						<li>Anchor/Fragmento: Parte específica del documento HTML a la que se hace referencia.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Headers</h3>
+					<p class="fragment" data-fragment-index="1">Tanto requests(cliente) como responses(servidor) tienen cabeceras(headers). Son información adicional para la otra parte(tipo de contenido, cookies, caches..).</p>
+					<p class="fragment" data-fragment-index="2">Son completamente <em>case insensitive</em>(es lo mismo 'Content-Type' que 'CoNtEnT-tYPE').</p>
+					<p class="fragment" data-fragment-index="3">
+						Algunos ejemplos:
+						<ul class="fragment" data-fragment-index="4">
+							<li>Access-Control-Allow-Origin</li>
+							<li>Allow</li>
+							<li>Age</li>
+							<li>Content-Encoding: gzip</li>
+							<li>Content-Type: text/html; charset=UTF-8</li>
+							<li>Expires</li>
+							<li>Keep-Alive</li>
+
+						</ul>
+					</p>
+					<p class="fragment" data-fragment-index="4">
+						<h4>Caching headers:</h4>
+						<h5>If-None-Match <-> Etag </h5>
+						<h5>Cache-Control</h5>
+					</p>
+					<p class="fragment" data-fragment-index="5">....¡y muchos más! ¡hazte con todos! <img src="images/pokeball.jpg" alt="" style="width: 60px;"></p>
+
+				</section>
+				<section>
+					<h3>HTTP responses</h3>
+					<section>
+						<p>Una respuesta típica de navegación tendrá:
+							<ul>
+								<li class="fragment" data-fragment-index="1">Status code(más adelante)</li>
+								<li class="fragment" data-fragment-index="2">Headers</li>
+								<li class="fragment" data-fragment-index="3">Documento(body)</li>
+							</ul>
+						</p>
+					</section>
 
 
-        <section><h4>¿Qué pasa cuando nos conectamos a una web?</h4>
-          <section>
-            <img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%">
-          </section>
-          <section>
-            <h3>El Modelo por Capas TCP/IP</h3>
-            <img src="images/layers.jpg" alt="">
-          </section>
-          <section>Browser sends a request through HTTP protocol for "https://wordpress.org/"</section>
-          <section>
-            <p class="fragment" data-fragment-index="1">HTTP protocol (Implemented by the browser) queries the OS resolver for the IP associated to the hostname</p>
-            <p class="fragment" data-fragment-index="2">Que es...</p>
-            <p class="fragment" data-fragment-index="3">wordpress.org</p>
-          </section>
-          <section>TCP prepares the request and sends it through IP protocol</section>
-          <section>Sends a UDP request(port 53) to the DNS server looking for the IP</section>
-          <section>Sends a <strong>TCP request</strong> to the IP address on 443(https) or 80(http)</section>
-          <section>Connection stablished: TCP starts sending fragmenting packets and sending them over IP</section>
-          <section>Server responds with the HTML document <strong>(200)</strong></section>
-        </section>
+					<section>
+						<h3>HTTP status codes</h3>
+						<section><h3>Informational (10x)</h3>
+							<ul>
+								<li>100 Continue</li>
+								<li>101 Switching Protocol</li>
+								<li>102 Processing</li>
+							</ul>
+						</section>
+						<section><h3>Success (20x)</h3>
+							<ul>
+								<li>100 Continue</li>
+								<li>101 Switching Protocol</li>
+								<li>102 Processing</li>
+							</ul>
+						</section>
 
-        <section>Anatomy of a request</section>
-        <section>Anatomy of a response</section>
-        <section>Thank you! cpasibo! Gracias!</section>
 
-      </div>
-    </div>
+						<section><h3>Redirect (30x)</h3>
+							<ul>
+								<li>300 Multiple Choice</li>
+								<li>301 Moved Permanently</li>
+								<li>302 Found</li>
+								<li>303 See Other</li>
+								<li>304 Not Modified</li>
+							</ul>
+						</section>
 
-    <script src="js/reveal.js"></script>
+						<section>
+							<h3>Client Error (40x)</h3>
+							<ul>
+								<li>400 Bad Request</li>
+								<li>401 Unathorized</li>
+								<li>403 Forbidden</li>
+								<li>404 Not Found</li>
+								<li>405 Method Not Allowed</li>
+								<li>...</li>
+							</ul>
+						</section>
+						<section>
+							<h3>Server Error (50x)</h3>
+							<ul>
+								<li>500 Internal Server Error</li>
+								<li>501 Not Implemented</li>
+								<li>502 Bad Gateway</li>
+								<li>503 Service Unavailable</li>
+								<li>504 Gateway Timeout</li>
+								<li>511 Network Authentication Required</li>
+							</ul>
+						</section>
+					</section> <!-- END HTTP status codes -->
 
-    <script>
+				</section><!-- END HTTP responses -->
+
+				<section>
+					<h3>HTTP 2</h3>
+					<p>Se mantienen status codes, headers, etc.</p>
+					<p class="fragment" data-fragment-index="1">La información es transmitida en binario</p>
+					<p class="fragment" data-fragment-index="2">Headers comprimidos por defecto</p>
+					<p class="fragment" data-fragment-index="3"><strong>Se reutilizan las conexiones TCP</strong></p>
+				</section>
+				<section>
+					<h3>HTTP <strong>S</strong></h3>
+					<ul>
+						<li class="fragment" data-fragment-index="1">Apertura de conexión normal con el servidor</li>
+						<li class="fragment" data-fragment-index="2">Servidor responde con certificado</li>
+						<li class="fragment" data-fragment-index="3">Cliente comprueba el certificado(parte pública) con una entidad certificadora(root certficate authorities)</li>
+						<li class="fragment" data-fragment-index="4">Checks? Good! Se comparten claves para codificar("encriptar") la conexión con AES</li>
+						<li class="fragment" data-fragment-index="5">Todo esto es el famoso y llamado TLS </li>
+					</ul>
+				</section>
+
+			</section><!-- END HTTP 101 -->
+
+
+			<section>
+				<h2>DNS</h2>
+				<section>
+					<h3>Domain Name System</h3>
+
+				</section>
+				<section></section>
+			</section>
+			<section>UDP 101</section>
+			<section>TCP 101</section>
+			<section>IP 101 (and beyond)</section>
+
+
+
+			<section><h4>¿Qué pasa cuando nos conectamos a una web?</h4>
+				<section>
+					<img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%">
+				</section>
+				<section>
+					<h3>El Modelo por Capas TCP/IP</h3>
+					<img src="images/layers.jpg" alt="">
+				</section>
+				<section>Browser sends a request through HTTP protocol for "https://wordpress.org/"</section>
+				<section>
+					<p class="fragment" data-fragment-index="1">HTTP protocol (Implemented by the browser) queries the OS resolver for the IP associated to the hostname</p>
+					<p class="fragment" data-fragment-index="2">Que es...</p>
+					<p class="fragment" data-fragment-index="3">wordpress.org</p>
+				</section>
+				<section>TCP prepares the request and sends it through IP protocol</section>
+				<section>Sends a UDP request(port 53) to the DNS server looking for the IP</section>
+				<section>Sends a <strong>TCP request</strong> to the IP address on 443(https) or 80(http)</section>
+				<section>Connection stablished: TCP starts sending fragmenting packets and sending them over IP</section>
+				<section>Server responds with the HTML document <strong>(200)</strong></section>
+			</section>
+
+			<section>Anatomy of a request</section>
+			<section>Anatomy of a response</section>
+			<section>Thank you! cpasibo! Gracias!</section>
+
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
       // More info about config & dependencies:
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true }
-        ]
+      	dependencies: [
+      	{ src: 'plugin/markdown/marked.js' },
+      	{ src: 'plugin/markdown/markdown.js' },
+      	{ src: 'plugin/notes/notes.js', async: true },
+      	{ src: 'plugin/highlight/highlight.js', async: true }
+      	]
       });
     </script>
   </body>
-</html>
+  </html>
