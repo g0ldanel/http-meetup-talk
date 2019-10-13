@@ -222,13 +222,53 @@
 <section>
   <h2>DNS</h2>
   <section>
-   <h3>Domain Name System</h3>
-
- </section>
- <section></section>
+    <h3>Domain Name System</h3> 
+    <p class="fragment" data-fragment-index="1">      
+      Es un servicio de base de datos <strong class="btn-danger">distribuida</strong> de las relaciones Nombre <-> Ip de los hosts de toda la Web. En sus inicios era una tabla centralizada.
+    </p>
+    <p>
+      <ul class="fragment" data-fragment-index="2">
+        <li>Es tambi'en responsable de informar sobre el servidor de correo de un host.</li>
+        <li>Cualquiera puede montar su propio servidor, pero se desaconseja (DNS Attacks).</li>
+      </ul>
+    </p>
+  </section>
+  <section>
+    <p>
+      <h4>Resolutores</h4>
+      <ul class="fragment" data-fragment-index="1">
+        <li>Gestionan las peticiones de las aplicaciones.</li>
+        <li>Resuelven en ambos sentidos</li>
+        <li>Mantienen la cache local</li>
+      </ul>
+    </p>
+    <p>
+      <ol class="fragment" data-fragment-index="2">
+        <li>Dominio local?</li>
+        <li>Cache?</li>
+        <li>Petici'on servidores raiz DNS</li>
+        <li>Peticion a los dns en respuesta de los servidores raiz</li>
+      </ol>
+    </p>
+  </section>
 </section>
-<section>UDP 101</section>
-<section>TCP 101</section>
+<section>
+  <h3>UDP 101</h3>
+  <h4>User Datagram Protocol</h4>
+  <p class="fragment" data-fragment-index="1">Es un servicio muy basico de envio de Datagramas para Aplicaciones.</p>
+  <p class="fragment" data-fragment-index="2">Es muy rapido, principalmente porque no gestiona aperturas ni cierres de conexion, simplemente envia y recibe la respuesta(si la hubiera)</p>
+  <ul class="fragment" data-fragment-index="3">
+    <li>DNS</li>
+    <li>DB Query</li>
+    <li>Videollamadas</li>
+  </ul>
+</section>
+<section>
+  <h3>TCP 101</h3>
+  <h4>Transmission Control Protocol</h4>
+  <p class="fragment" data-fragment-index="1"></p>
+  
+</section>
 <section>IP 101 (and beyond)</section>
 
 
