@@ -299,7 +299,7 @@
       <li class="fragment" data-fragment-index="3">Disponible</li>
       <li class="fragment" data-fragment-index="4">Dar apoyo a niveles superiores</li>
     </ul>
-    <p class="fragment" data-fragment-index="5">IP no garantiza la entrega(fin del tiempo de vida, fallo en el encaminamiento, errores en la transmision, o simplemente falta de espacio en el bufer.)<br/>Fiabilidad: TCP</p>
+    <p class="fragment" data-fragment-index="5">IP no garantiza la entrega(fin del tiempo de vida, fallo en el encaminamiento, errores en la transmision, o simplemente falta de espacio en el bufer.)<br/>Fiabilidad: TCP.</p>
   </section>
 </section>
 
@@ -313,22 +313,23 @@
    <h3>El Modelo por Capas TCP/IP</h3>
    <img src="images/layers.jpg" alt="">
  </section>
- <section>Browser sends a request through HTTP protocol for "https://wordpress.org/"</section>
+ <section>El Navegador hace una peticion por HTTP a la direcci'on  "https://wordpress.org/"</section>
  <section>
-   <p class="fragment" data-fragment-index="1">HTTP protocol (Implemented by the browser) queries the OS resolver for the IP associated to the hostname</p>
+   <p class="fragment" data-fragment-index="1">HTTP (Implementado por el navegador)pregunta al Resolver del SO por la IP asociada al hostname</p>
    <p class="fragment" data-fragment-index="2">Que es...</p>
    <p class="fragment" data-fragment-index="3">wordpress.org</p>
+  <p class="fragment" data-fragment-index="4">El resolver utiliza UDP request(port 53)para preguntar al DNS server por la IP</p>
  </section>
- <section>TCP prepares the request and sends it through IP protocol</section>
- <section>Sends a UDP request(port 53) to the DNS server looking for the IP</section>
- <section>Sends a <strong>TCP request</strong> to the IP address on 443(https) or 80(http)</section>
- <section>Connection stablished: TCP starts sending fragmenting packets and sending them over IP</section>
- <section>Server responds with the HTML document <strong>(200)</strong></section>
+ <section><strong>TCP</strong> trata de abrir una conexion en 443(https) u 80(http)</section>
+ <section>TCP prepara la request y empieza a empaquetar y enviar a traves de IP</section>
+ <section>Connection established: TCP encapsula y envia paquetes y los envia por IP</section>
+ <section>
+  <p>Server responde con el HTML document <strong>(200)</strong></p>
+  <p>(diferencia http1 y posteriores)</p>
+ </section>
 </section>
 
-<section>Anatomy of a request</section>
-<section>Anatomy of a response</section>
-<section>Thank you! cpasibo! Gracias!</section>
+<section><h1>Thank you!</h1><h1>Спасибо</h1><h1>Gracias!</h1></section>
 
 </div>
 </div>
