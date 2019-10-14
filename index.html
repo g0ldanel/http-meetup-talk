@@ -46,292 +46,320 @@
 					<li><strong>Profesión</strong>: ¿FullStack developer?</li>
 				</ul>
 				<p><small><em>Un señor con un sentido del humor muy refinado</em></small></p>
+				<footer>2</footer>
 			</section>
-
+			<section><h4>¿Qué pasa cuando nos conectamos a una web?</h4>
+				<img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%">
+			</section>
 			<section>
 				<section>
-          <h2>HTTP 101</h2>
-          <p class="fragment fade-up" data-fragment-index="1"><h4><em>HyperText Transfer Protocol</em></h4></p>
-          <p class="fragment fade-up" data-fragment-index="2">Es un protocolo que en sus inicios fue construido sobre TCP para servir contenidos (cada vez más) amigables y visuales, en vez de los paquetes de datos en texto plano que se venían dando.</p>
-        </section>
-        <section>
-         <h4>Se compone de dos partes:</h4>
-         <div class="col-md-6">
-          <h4>Request</h4>
-          <hr/>
-          <div class="col-md-3 small">request line</div>
-          <div class="col-md-9"><pre><code class="hljs" data-trim data-noescape >
-           GET / HTTP/1.1
-         </code></pre></div>
-         <hr/>
-         <div class="col-md-3">headers</div>
-         <div class="col-md-9"><pre><code class="hljs" data-trim data-noescape >
-           Host: wordpress.org
-           User-Agent: curl
-           Accept: */*
-         </code></pre></div>
-       </div>
-       <div class="col-md-6">
-        <h4>Response</h4>
-        <hr/>
-        <div class="col-md-9"><pre><code class="hljs" data-trim data-noescape >
-         HTTP/1.1 200 OK
-       </code></pre></div>
+					<h2>HTTP 101</h2>
+					<p class="fragment fade-up" data-fragment-index="1"><h4><em>HyperText Transfer Protocol</em></h4></p>
+					<p class="fragment fade-up" data-fragment-index="2">Es un protocolo que en sus inicios fue construido sobre TCP para servir contenidos (cada vez más) amigables y visuales, en vez de (simples?) paquetes de datos que se venían dando.</p>
+					<p><blockquote class="fragment fade-up" data-fragment-index="3"> [HTTP]...is an application-level protocol for distributed, collaborative, hypermedia information systems.</blockquote></p>
+					<aside class="notes">
+						1990
+					</aside>
+				</section>
+				<section>
+					<h4>Se compone de dos partes:</h4>
+					<div class="row">
+						<h4 class="col-md-6">Request</h4>
+						<h4 class="col-md-6">Response</h4>
+					</div>
+					<hr/>
+					<div class="row fragment fade-up" data-fragment-index="1">
+						<div class="col-md-2 small">request line</div>
+						<div class="col-md-5"><pre><code class="hljs" data-trim data-noescape >
+							GET / HTTP/1.1
+						</code></pre></div>
+						<div class="col-md-5"><pre><code class="hljs" data-trim data-noescape >
+							HTTP/1.1 200 OK
+						</code></pre></div>
+					</div>
+					<hr/>
+					<div class="row fragment fade-up" data-fragment-index="2">
+						<div class="col-md-2">headers</div>
+						<div class="col-md-5"><pre><code class="hljs" data-trim data-noescape >
+							Host: wordpress.org
+							User-Agent: curl
+							Accept: */*
+						</code></pre></div>
+						<div class="col-md-5"><pre><code class="hljs" data-trim data-noescape >
+							Cache-control: max-age: 604800
+							Content-type: text/html
+						</code></pre></div>
+					</div>
+				</section>
+				<section>
+					<h3>Formato de una request</h3>
+					<span class="fragment highlight-blue" data-fragment-index="1">https://</span>
+					<span class="fragment highlight-red" data-fragment-index="2">wordpress.org</span>
+					<span class="fragment highlight-green" data-fragment-index="3">:443</span>
+					<span class="fragment highlight-" data-fragment-index="4">/themes/happy-wedding-day/</span>
+					<span class="fragment highlight-" data-fragment-index="5">?id=1234</span>
+					<span class="fragment highlight-" data-fragment-index="6">#ornitorrinco</span>
+					<ul class="fragment" data-fragment-index="7">
+						<li>Protocolo: HTTP/S, FTP...</li>
+						<li>Dominio/Hostname: El nombre de la máquina a la que se le hace el request/petición</li>
+						<li>Puerto: ...de acceso</li>
+						<li>Path/Resource: Recursos específico dentro del Host al que se quiere acceder</li>
+						<li>Query: Parámetros de consulta adicionales</li>
+						<li>Anchor/Fragmento: Parte específica del documento HTML a la que se hace referencia.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Headers</h3>
+					<p class="fragment" data-fragment-index="1">Tanto requests(cliente) como responses(servidor) tienen cabeceras(headers). Son información adicional para la otra parte(tipo de contenido, cookies, caches..).</p>
+					<p class="fragment" data-fragment-index="2">Son completamente <em>case insensitive</em>(es lo mismo 'Content-Type' que 'CoNtEnT-tYPE').</p>
+					<div class="col-md-6">
+						<p class="fragment " data-fragment-index="3">
+							Algunos ejemplos:
+							<ul class="fragment " data-fragment-index="4">
+								<li>Access-Control-Allow-Origin</li>
+								<li>Allow</li>
+								<li>Age</li>
+								<li>Content-Encoding: gzip</li>
+								<li>Content-Type: text/html; charset=UTF-8</li>
+								<li>Expires</li>
+								<li>Keep-Alive</li>
+							</ul>
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p class="fragment " data-fragment-index="5">
+							<span class="h4">Caching headers:</span>
+							<ul class="fragment " data-fragment-index="6">
+								<li>If-None-Match <-> Etag </li>
+								<li>Cache-Control</li>
+							</ul>
+						</p>
+					</div>
+					<div class="col-md-12">
+						<p class="fragment " data-fragment-index="7">....¡y muchos más! ¡hazte con todos! <img src="images/pokeball.jpg" alt="" style="width: 60px;"></p>
+					</div>
+				</section>
+				<section>
+					<h3>HTTP responses</h3>
+					<p>Una respuesta típica de navegación tendrá:
+						<ul>
+							<li class="fragment" data-fragment-index="1">Headers</li>
+							<li class="fragment" data-fragment-index="2">Documento(body)</li>
+							<li class="fragment" data-fragment-index="3">Status code</li>
+						</ul>
+					</p>
+					<p><pre class="fragment"  data-fragment-index="4"><code class="hljs" data-trim data-noescape>
+						HTTP/2 200
+						server: nginx
+						date: Mon, 14 Oct 2019 09:11:50 GMT
+						content-type: text/html; charset=utf-8
+						vary: Accept-Encoding
+						strict-transport-security: max-age=360
+						x-olaf:
+						x-frame-options: SAMEORIGIN
+						x-nc: HIT ord 2
+					</code></pre></p>
 
-       <div class="col-md-12"><pre><code class="hljs" data-trim data-noescape >
-         Cache-control: max-age: 604800
-         Content-type: text/html
-       </code></pre></div>
-     </div>
-   </section>
-   <section>
-     <h3>Formato de una request</h3>
-     <span class="fragment highlight-blue" data-fragment-index="1">https://</span>
-     <span class="fragment highlight-red" data-fragment-index="2">wordpress.org</span>
-     <span class="fragment highlight-green" data-fragment-index="3">:443</span>
-     <span class="fragment highlight-" data-fragment-index="4">/themes/happy-wedding-day/</span>
-     <span class="fragment highlight-" data-fragment-index="5">?id=1234</span>
-     <span class="fragment highlight-" data-fragment-index="6">#ornitorrinco</span>
-     <ul class="fragment" data-fragment-index="7">
-      <li>Protocolo: HTTP/S, FTP...</li>
-      <li>Dominio/Hostname: El nombre de la máquina a la que se le hace el request/petición</li>
-      <li>Puerto: ...de acceso</li>
-      <li>Path/Resource: Recursos específico dentro del Host al que se quiere acceder</li>
-      <li>Query: Parámetros de consulta adicionales</li>
-      <li>Anchor/Fragmento: Parte específica del documento HTML a la que se hace referencia.</li>
-    </ul>
-  </section>
-  <section>
-   <h3>Headers</h3>
-   <p class="fragment" data-fragment-index="1">Tanto requests(cliente) como responses(servidor) tienen cabeceras(headers). Son información adicional para la otra parte(tipo de contenido, cookies, caches..).</p>
-   <p class="fragment" data-fragment-index="2">Son completamente <em>case insensitive</em>(es lo mismo 'Content-Type' que 'CoNtEnT-tYPE').</p>
-   <div class="col-md-6">
-    <p class="fragment " data-fragment-index="3">
-      Algunos ejemplos:
-      <ul class="fragment " data-fragment-index="4">
-        <li>Access-Control-Allow-Origin</li>
-        <li>Allow</li>
-        <li>Age</li>
-        <li>Content-Encoding: gzip</li>
-        <li>Content-Type: text/html; charset=UTF-8</li>
-        <li>Expires</li>
-        <li>Keep-Alive</li>
-      </ul>
-    </p>
-  </div>
-  <div class="col-md-6">
-    <p class="fragment " data-fragment-index="5">
-      <span class="h4">Caching headers:</span>
-      <ul class="fragment " data-fragment-index="6">
-        <li>If-None-Match <-> Etag </li>
-        <li>Cache-Control</li>
-      </ul>
-    </p>
-  </div>
-  <div class="col-md-12">
-    <p class="fragment " data-fragment-index="7">....¡y muchos más! ¡hazte con todos! <img src="images/pokeball.jpg" alt="" style="width: 60px;"></p>
-  </div>
-</section>
-<section>
-  <h3>HTTP responses</h3>
-  <p>Una respuesta típica de navegación tendrá:
-    <ul>
-      <li class="fragment" data-fragment-index="2">Headers</li>
-      <li class="fragment" data-fragment-index="3">Documento(body)</li>
-      <li class="fragment" data-fragment-index="1">Status code</li>
-    </ul>
-  </p>
-</section>
+				</section>
 
-<section class="h3">
-  <h3>HTTP status codes</h3>
-  <div class="col-md-3 fragment" data-fragment-index="1"><h3>Informational (10x)</h3>
-    <ul>
-      <li>100 Continue</li>
-      <li>101 Switching Protocol</li>
-      <li>102 Processing</li>
-    </ul>
-  </div>
-  <div class="col-md-3 fragment" data-fragment-index="2"><h3>Success (20x)</h3>
-    <ul>
-      <li>100 Continue</li>
-      <li>101 Switching Protocol</li>
-      <li>102 Processing</li>
-    </ul>
-  </div>
-
-
-  <div class="col-md-3 fragment" data-fragment-index="3"><h3>Redirect (30x)</h3>
-    <ul>
-      <li>300 Multiple Choice</li>
-      <li>301 Moved Permanently</li>
-      <li>302 Found</li>
-      <li>303 See Other</li>
-      <li>304 Not Modified</li>
-    </ul>
-  </div>
-
-  <div class="col-md-3 fragment" data-fragment-index="4">
-    <h3>Client Error (40x)</h3>
-    <ul>
-      <li>400 Bad Request</li>
-      <li>401 Unathorized</li>
-      <li>403 Forbidden</li>
-      <li>404 Not Found</li>
-      <li>405 Method Not Allowed</li>
-      <li>...</li>
-    </ul>
-  </div>
-  <div class="col-md-3 fragment" data-fragment-index="5">
-    <h3>Server Error (50x)</h3>
-    <ul>
-      <li>500 Internal Server Error</li>
-      <li>501 Not Implemented</li>
-      <li>502 Bad Gateway</li>
-      <li>503 Service Unavailable</li>
-      <li>504 Gateway Timeout</li>
-      <li>511 Network Authentication Required</li>
-    </ul>
-  </div>
-</section> <!-- END HTTP status codes -->
-
-</section><!-- END HTTP responses -->
-
-<section>
- <h3>HTTP 2</h3>
- <p>Se mantienen status codes, headers, etc.</p>
- <p class="fragment highlight-green" data-fragment-index="1">Es la siguiente versi'on tras HTTP/1</p>
- <p class="fragment highlight-green" data-fragment-index="2">Mismos Headers, multiplexados(comprimidos) por defecto</p>
- <p class="fragment highlight-red" data-fragment-index="3">Se reutilizan las conexiones TCP</p>
- <p class="fragment highlight-red" data-fragment-index="3">TLS por defecto(HTTPS!)</p>
-</section>
-<section>
- <h3>HTTP <strong>S</strong></h3>
- <ul>
-  <li class="fragment" data-fragment-index="1">TLS abre una conexión TCP con el servidor</li>
-  <li class="fragment" data-fragment-index="2">Servidor responde con certificado</li>
-  <li class="fragment" data-fragment-index="3">Cliente comprueba el certificado(parte pública) con una entidad certificadora(root certficate authorities)</li>
-  <li class="fragment" data-fragment-index="4">Checks? Good! Se comparten claves para codificar("encriptar") la conexión con AES y una clave compartida para la sesi'on</li>
-  <li class="fragment" data-fragment-index="5">Todo esto es el famoso y llamado TLS(HTTP over [S]SL/TL[S]) </li>
-</ul>
-</section>
-
-</section><!-- END HTTP 101 -->
+				<section class="h3">
+					<h3>HTTP status codes</h3>
+					<img src="images/status-codes.png" class="img img-responsive col-md-6 fragment"  data-fragment-index="1" alt="">
+					<div class="col-md-3 fragment" data-fragment-index="2"><h3>Informational (10x)</h3>
+						<ul>
+							<li>100 Continue</li>
+							<li>101 Switching Protocol</li>
+							<li>102 Processing</li>
+						</ul>
+					</div>
+					<div class="col-md-3 fragment" data-fragment-index="3"><h3>Success (20x)</h3>
+						<ul>
+							<li>100 Continue</li>
+							<li>101 Switching Protocol</li>
+							<li>102 Processing</li>
+						</ul>
+					</div>
 
 
-<section>
-  <h2>DNS</h2>
-  <section>
-    <h3>Domain Name System</h3> 
-    <p class="fragment" data-fragment-index="1">      
-      Es un servicio de base de datos <strong class="btn-danger">distribuida</strong> de las relaciones Nombre <-> Ip de los hosts de toda la Web. En sus inicios era una tabla centralizada.
-    </p>
-    <p>
-      <ul class="fragment" data-fragment-index="2">
-        <li>Es tambi'en responsable de informar sobre el servidor de correo de un host.</li>
-        <li>Cualquiera puede montar su propio servidor, pero se desaconseja (DNS Attacks).</li>
-      </ul>
-    </p>
-  </section>
-  <section>
-    <p>
-      <h4>Resolutores</h4>
-      <ul class="fragment" data-fragment-index="1">
-        <li>Gestionan las peticiones de las aplicaciones.</li>
-        <li>Resuelven en ambos sentidos</li>
-        <li>Mantienen la cache local</li>
-      </ul>
-    </p>
-    <p>
-      <ol class="fragment" data-fragment-index="2">
-        <li>Dominio local?</li>
-        <li>Cache?</li>
-        <li>Petici'on servidores raiz DNS</li>
-        <li>Peticion a los dns en respuesta de los servidores raiz</li>
-      </ol>
-    </p>
-  </section>
-</section>
-<section>
-  <h3>UDP 101</h3>
-  <h4>User Datagram Protocol</h4>
-  <p class="fragment" data-fragment-index="1">Es un servicio muy basico de envio de Datagramas para Aplicaciones.</p>
-  <p class="fragment" data-fragment-index="2">Es muy rapido, principalmente porque no gestiona aperturas ni cierres de conexion, simplemente envia y recibe la respuesta(si la hubiera)</p>
-  <ul class="fragment" data-fragment-index="3">
-    <li>DNS</li>
-    <li>DB Query</li>
-    <li>Videollamadas</li>
-  </ul>
-</section>
-<section>
-  <h3>TCP 101</h3>
-  <h4>Transmission Control Protocol</h4>
-  <p class="fragment" data-fragment-index="1">
-    Es un servicio de intercambio de datagramas <strong>confiable y seguro</strong>.
-  </p>
-  <ul class="fragment" data-fragment-index="2">
-    <li>Establece y cierra conexiones</li>
-    <li>Garantiza la entrega de los datagramas de forma ordenada y sin errores</li>
-    <li>Control de flujo</li>
-    <li>Empaqueta y fragmenta</li> 
-  </ul>
-  <ul class="fragment" data-fragment-index="3">
-     <li>Email</li>
-     <li>HTTP</li>
-     <li>Youtube</li>
-  </ul>
+					<div class="col-md-3 fragment" data-fragment-index="4"><h3>Redirect (30x)</h3>
+						<ul>
+							<li>300 Multiple Choice</li>
+							<li>301 Moved Permanently</li>
+							<li>302 Found</li>
+							<li>303 See Other</li>
+							<li>304 Not Modified</li>
+						</ul>
+					</div>
 
-  
-</section>
-<section>
-  <h3>IP 101</h3>
-  <section>
-    <h4>Internet Protocol</h4>
-    <p class="fragment" data-fragment-index="1">Se encarga de aceptar datos de TCP&UDP, encapsularlos y encaminarlos para tratar de entregarlos a destino.</p>
-    <p class="fragment" data-fragment-index="2">Para ello, utiliza la m'ascara de subred y la tabla de enrutamientos...</p>
-    <p class="fragment" data-fragment-index="3">...y buenas intenciones.</p>
-  </section>
-  <section>
-    <h4>IP debe permitir:</h4>
-    <ul>
-      <li class="fragment" data-fragment-index="1">Generico. Integrarse entre diferementes fabricantes</li>
-      <li class="fragment" data-fragment-index="2">Escalable. </li>
-      <li class="fragment" data-fragment-index="3">Disponible</li>
-      <li class="fragment" data-fragment-index="4">Dar apoyo a niveles superiores</li>
-    </ul>
-    <p class="fragment" data-fragment-index="5">IP no garantiza la entrega(fin del tiempo de vida, fallo en el encaminamiento, errores en la transmision, o simplemente falta de espacio en el bufer.)<br/>Fiabilidad: TCP.</p>
-  </section>
-</section>
+					<div class="col-md-3 fragment" data-fragment-index="5">
+						<h3>Client Error (40x)</h3>
+						<ul>
+							<li>400 Bad Request</li>
+							<li>401 Unathorized</li>
+							<li>403 Forbidden</li>
+							<li>404 Not Found</li>
+							<li>405 Method Not Allowed</li>
+							<li>...</li>
+						</ul>
+					</div>
+					<div class="col-md-3 fragment" data-fragment-index="6">
+						<h3>Server Error (50x)</h3>
+						<ul>
+							<li>500 Internal Server Error</li>
+							<li>501 Not Implemented</li>
+							<li>502 Bad Gateway</li>
+							<li>503 Service Unavailable</li>
+							<li>504 Gateway Timeout</li>
+							<li>511 Network Authentication Required</li>
+						</ul>
+					</div>
+				</section> <!-- END HTTP status codes -->
 
 
 
-<section><h4>¿Qué pasa cuando nos conectamos a una web?</h4>
-  <section>
-   <img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%">
- </section>
- <section>
-   <h3>El Modelo por Capas TCP/IP</h3>
-   <img src="images/layers.jpg" alt="">
- </section>
- <section>El Navegador hace una peticion por HTTP a la direcci'on  "https://wordpress.org/"</section>
- <section>
-   <p class="fragment" data-fragment-index="1">HTTP (Implementado por el navegador)pregunta al Resolver del SO por la IP asociada al hostname</p>
-   <p class="fragment" data-fragment-index="2">Que es...</p>
-   <p class="fragment" data-fragment-index="3">wordpress.org</p>
-  <p class="fragment" data-fragment-index="4">El resolver utiliza UDP request(port 53)para preguntar al DNS server por la IP</p>
- </section>
- <section><strong>TCP</strong> trata de abrir una conexion en 443(https) u 80(http)</section>
- <section>TCP prepara la request y empieza a empaquetar y enviar a traves de IP</section>
- <section>Connection established: TCP encapsula y envia paquetes y los envia por IP</section>
- <section>
-  <p>Server responde con el HTML document <strong>(200)</strong></p>
-  <p>(diferencia http1 y posteriores)</p>
- </section>
-</section>
+			</section><!-- END HTTP responses -->
 
-<section><h1>Thank you!</h1><h1>Спасибо</h1><h1>Gracias!</h1></section>
+			<section>
+				<h3>HTTP 2</h3>
+				<p>Se mantienen status codes, headers, etc.</p>
+				<p class="fragment highlight-green" data-fragment-index="1">Es la siguiente versi'on tras HTTP/1</p>
+				<p class="fragment highlight-green" data-fragment-index="2">Mismos Headers, multiplexados(comprimidos) por defecto</p>
+				<p class="fragment highlight-red" data-fragment-index="3">Se reutilizan las conexiones TCP</p>
+				<p class="fragment highlight-red" data-fragment-index="3">TLS por defecto(HTTPS!)</p>
+				<footer>4</footer>
+			</section>
+			<section>
+				<h3>HTTP <strong>S</strong></h3>
+				<ul>
+					<li class="fragment" data-fragment-index="1">TLS abre una conexión TCP con el servidor</li>
+					<li class="fragment" data-fragment-index="2">Servidor responde con certificado</li>
+					<li class="fragment" data-fragment-index="3">Cliente comprueba el certificado(parte pública) con una entidad certificadora(root certficate authorities)</li>
+					<li class="fragment" data-fragment-index="4">Checks? Good! Se comparten claves para codificar("encriptar") la conexión con AES y una clave compartida para la sesi'on</li>
+					<li class="fragment" data-fragment-index="5">Todo esto es el famoso y llamado TLS(HTTP over [S]SL/TL[S]) </li>
+				</ul>
+				<footer>6</footer>
+			</section>
 
-</div>
+		</section><!-- END HTTP 101 -->
+
+
+		<section>
+			<h2>DNS</h2>
+			<section>
+				<h3>Domain Name System</h3>
+				<p class="fragment" data-fragment-index="1">
+					Es un servicio de base de datos <strong class="btn-danger">distribuida</strong> de las relaciones Nombre <-> Ip de los hosts de toda la Web. En sus inicios era una tabla centralizada.
+				</p>
+				<p>
+					<ul class="fragment" data-fragment-index="2">
+						<li>Es tambi'en responsable de informar sobre el servidor de correo de un host.</li>
+						<li>Cualquiera puede montar su propio servidor, pero se desaconseja (DNS Attacks).</li>
+					</ul>
+				</p>
+			</section>
+			<section>
+				<p>
+					<h4>Resolutores</h4>
+					<ul class="fragment" data-fragment-index="1">
+						<li>Gestionan las peticiones de las aplicaciones.</li>
+						<li>Resuelven en ambos sentidos</li>
+						<li>Mantienen la cache local</li>
+					</ul>
+				</p>
+				<p>
+					<ol class="fragment" data-fragment-index="2">
+						<li>Dominio local?</li>
+						<li>Cache?</li>
+						<li>Petici'on servidores raiz DNS</li>
+						<li>Peticion a los dns en respuesta de los servidores raiz</li>
+					</ol>
+				</p>
+			</section>
+			<footer>8</footer>
+		</section>
+		<section>
+			<h3>UDP 101</h3>
+			<h4>User Datagram Protocol</h4>
+			<p class="fragment" data-fragment-index="1">Es un servicio muy basico de envio de Datagramas para Aplicaciones.</p>
+			<p class="fragment" data-fragment-index="2">Es muy rapido, principalmente porque no gestiona aperturas ni cierres de conexion, simplemente envia y recibe la respuesta(si la hubiera)</p>
+			<ul class="fragment" data-fragment-index="3">
+				<li>DNS</li>
+				<li>DB Query</li>
+				<li>Videollamadas</li>
+			</ul>
+			<footer>10</footer>
+		</section>
+		<section>
+			<h3>TCP 101</h3>
+			<h4>Transmission Control Protocol</h4>
+			<p class="fragment" data-fragment-index="1">
+				Es un servicio de intercambio de datagramas <strong>confiable y seguro</strong>.
+			</p>
+			<ul class="fragment" data-fragment-index="2">
+				<li>Establece y cierra conexiones</li>
+				<li>Garantiza la entrega de los datagramas de forma ordenada y sin errores</li>
+				<li>Control de flujo</li>
+				<li>Empaqueta y fragmenta</li>
+			</ul>
+			<ul class="fragment" data-fragment-index="3">
+				<li>Email</li>
+				<li>HTTP</li>
+				<li>Youtube</li>
+			</ul>
+
+			<footer>11</footer>
+		</section>
+		<section>
+			<h3>IP 101</h3>
+			<section>
+				<h4>Internet Protocol</h4>
+				<p class="fragment" data-fragment-index="1">Se encarga de aceptar datos de TCP&UDP, encapsularlos y encaminarlos para tratar de entregarlos a destino.</p>
+				<p class="fragment" data-fragment-index="2">Para ello, utiliza la m'ascara de subred y la tabla de enrutamientos...</p>
+				<p class="fragment" data-fragment-index="3">...y buenas intenciones.</p>
+			</section>
+			<section>
+				<h4>IP debe permitir:</h4>
+				<ul>
+					<li class="fragment" data-fragment-index="1">Generico. Integrarse entre diferementes fabricantes</li>
+					<li class="fragment" data-fragment-index="2">Escalable. </li>
+					<li class="fragment" data-fragment-index="3">Disponible</li>
+					<li class="fragment" data-fragment-index="4">Dar apoyo a niveles superiores</li>
+				</ul>
+				<p class="fragment" data-fragment-index="5">IP no garantiza la entrega(fin del tiempo de vida, fallo en el encaminamiento, errores en la transmision, o simplemente falta de espacio en el bufer.)<br/>Fiabilidad: TCP.</p>
+			</section>
+			<footer>13</footer>
+		</section>
+
+
+
+		<section><h4>¿Qué pasa cuando nos conectamos a una web?</h4>
+			<section>
+				<img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%">
+			</section>
+			<section>
+				<h3>El Modelo por Capas TCP/IP</h3>
+				<img src="images/layers.jpg" alt="">
+			</section>
+			<section>El Navegador hace una peticion por HTTP a la direcci'on  "https://wordpress.org/"</section>
+			<section>
+				<p class="fragment" data-fragment-index="1">HTTP (Implementado por el navegador)pregunta al Resolver del SO por la IP asociada al hostname</p>
+				<p class="fragment" data-fragment-index="2">Que es...</p>
+				<p class="fragment" data-fragment-index="3">wordpress.org</p>
+				<p class="fragment" data-fragment-index="4">El resolver utiliza UDP request(port 53)para preguntar al DNS server por la IP</p>
+			</section>
+			<section><strong>TCP</strong> trata de abrir una conexion en 443(https) u 80(http)</section>
+			<section>TCP prepara la request y empieza a empaquetar y enviar a traves de IP</section>
+			<section>Connection established: TCP encapsula y envia paquetes y los envia por IP</section>
+			<section>
+				<p>Server responde con el HTML document <strong>(200)</strong></p>
+				<p>(diferencia http1 y posteriores)</p>
+			</section>
+			<footer>18</footer>
+		</section>
+
+		<section><h1>Thank you!</h1><h1>Спасибо!</h1><h1>Gracias!</h1></section>
+
+	</div>
 </div>
 
 <script src="js/reveal.js"></script>
