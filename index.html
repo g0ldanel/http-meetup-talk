@@ -28,7 +28,6 @@
 		<div class="slides">
 			<section>
 				<h4>¿Qué pasa cuando nos conectamos a una web?</h4>
-				<h5>(versión SpeedRun)</h5>
 				<div id="photo">
 					<img src="images/bg-1.jpg" alt="" style="width:100%">
 					<a style="right:0px;background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@markusspiske?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Markus Spiske"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Photo credit Markus Spiske</span></a>
@@ -49,7 +48,12 @@
 				<footer>2</footer>
 			</section>
 			<section><h4>¿Qué pasa cuando nos conectamos a una web?</h4>
-				<img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%">
+        <section><img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%"></section>
+        <section>
+          <h4>&nbsp</h4>
+          <h4 class="red">¡Versión SpeedRun!</h4>
+          <img src="images/darksouls.jpg" alt="" class="img img-responsive col-md-6 col-offset-md-3" style="left:35%">
+        </section>
 			</section>
 			<section>
 				<section>
@@ -95,8 +99,8 @@
 					<h3>Formato de una request</h3>
 					<span class="fragment highlight-blue" data-fragment-index="1">https://</span>
 					<span class="fragment highlight-red" data-fragment-index="2">wordpress.org</span>
-					<span class="fragment highlight-green" data-fragment-index="3">:443</span>
-					<span class="fragment highlight-" data-fragment-index="4">/themes/happy-wedding-day/</span>
+					<span class="fragment highlight-green" data-fragment-index="3">:443/</span>
+					<span class="fragment highlight-" data-fragment-index="4">themes/happy-wedding-day/</span>
 					<span class="fragment highlight-" data-fragment-index="5">?id=1234</span>
 					<span class="fragment highlight-" data-fragment-index="6">#ornitorrinco</span>
 					<ul class="fragment" data-fragment-index="7">
@@ -107,7 +111,20 @@
 						<li>Query: Parámetros de consulta adicionales</li>
 						<li>Anchor/Fragmento: Parte específica del documento HTML a la que se hace referencia.</li>
 					</ul>
+          <p class="fragment red" data-fragment-index="8">Y un método</p>
+
 				</section>
+        
+
+        <section>
+          <h3>Request Methods</h3>
+          <p class="fragment" data-fragment-index="1">GET</p>
+          <p class="fragment" data-fragment-index="2">HEAD</p>
+          <p class="fragment" data-fragment-index="3">POST</p>
+          <p class="fragment" data-fragment-index="4">DELETE, PUT y PATCH</p>
+          <p class="fragment" data-fragment-index="5">OPTIONS, TRACE y CONNECT</p>
+        </section>
+
 				<section>
 					<h3>Headers</h3>
 					<p class="fragment" data-fragment-index="1">Tanto requests(cliente) como responses(servidor) tienen cabeceras(headers). Son información adicional para la otra parte(tipo de contenido, cookies, caches..).</p>
@@ -164,7 +181,6 @@
 
 				<section class="h3">
 					<h3>HTTP status codes</h3>
-					<img src="images/status-codes.png" class="img img-responsive col-md-6 fragment"  data-fragment-index="1" alt="">
 					<div class="col-md-3 fragment" data-fragment-index="2"><h3>Informational (10x)</h3>
 						<ul>
 							<li>100 Continue</li>
@@ -174,9 +190,9 @@
 					</div>
 					<div class="col-md-3 fragment" data-fragment-index="3"><h3>Success (20x)</h3>
 						<ul>
-							<li>100 Continue</li>
-							<li>101 Switching Protocol</li>
-							<li>102 Processing</li>
+							<li>200 OK</li>
+							<li>201 Created</li>
+							<li>202 Processing</li>
 						</ul>
 					</div>
 
@@ -213,6 +229,7 @@
 							<li>511 Network Authentication Required</li>
 						</ul>
 					</div>
+					<img src="images/status-codes.png" class="img img-responsive col-md-6 fragment"  data-fragment-index="1" alt="">
 				</section> <!-- END HTTP status codes -->
 
 
@@ -222,7 +239,7 @@
 			<section>
 				<h3>HTTP 2</h3>
 				<p>Se mantienen status codes, headers, etc.</p>
-				<p class="fragment highlight-green" data-fragment-index="1">Es la siguiente versi'on tras HTTP/1</p>
+				<p class="fragment highlight-green" data-fragment-index="1">Es la siguiente versión tras HTTP/1</p>
 				<p class="fragment highlight-green" data-fragment-index="2">Mismos Headers, multiplexados(comprimidos) por defecto</p>
 				<p class="fragment highlight-red" data-fragment-index="3">Se reutilizan las conexiones TCP</p>
 				<p class="fragment highlight-red" data-fragment-index="3">TLS por defecto(HTTPS!)</p>
@@ -234,7 +251,7 @@
 					<li class="fragment" data-fragment-index="1">TLS abre una conexión TCP con el servidor</li>
 					<li class="fragment" data-fragment-index="2">Servidor responde con certificado</li>
 					<li class="fragment" data-fragment-index="3">Cliente comprueba el certificado(parte pública) con una entidad certificadora(root certficate authorities)</li>
-					<li class="fragment" data-fragment-index="4">Checks? Good! Se comparten claves para codificar("encriptar") la conexión con AES y una clave compartida para la sesi'on</li>
+					<li class="fragment" data-fragment-index="4">Checks? Good! Se comparten claves para codificar("encriptar") la conexión con AES y una clave compartida para la sesión</li>
 					<li class="fragment" data-fragment-index="5">Todo esto es el famoso y llamado TLS(HTTP over [S]SL/TL[S]) </li>
 				</ul>
 				<footer>6</footer>
@@ -252,7 +269,7 @@
 				</p>
 				<p>
 					<ul class="fragment" data-fragment-index="2">
-						<li>Es tambi'en responsable de informar sobre el servidor de correo de un host.</li>
+						<li>Es también responsable de informar sobre el servidor de correo de un host.</li>
 						<li>Cualquiera puede montar su propio servidor, pero se desaconseja (DNS Attacks).</li>
 					</ul>
 				</p>
@@ -270,8 +287,8 @@
 					<ol class="fragment" data-fragment-index="2">
 						<li>Dominio local?</li>
 						<li>Cache?</li>
-						<li>Petici'on servidores raiz DNS</li>
-						<li>Peticion a los dns en respuesta de los servidores raiz</li>
+						<li>Petición servidores raiz DNS</li>
+						<li>Petición a los DNS en respuesta de los servidores raíz</li>
 					</ol>
 				</p>
 			</section>
@@ -280,14 +297,15 @@
 		<section>
 			<h3>UDP 101</h3>
 			<h4>User Datagram Protocol</h4>
-			<p class="fragment" data-fragment-index="1">Es un servicio muy basico de envio de Datagramas para Aplicaciones.</p>
-			<p class="fragment" data-fragment-index="2">Es muy rapido, principalmente porque no gestiona aperturas ni cierres de conexion, simplemente envia y recibe la respuesta(si la hubiera)</p>
+			<p class="fragment" data-fragment-index="1">Es un servicio muy básico de envio de Datagramas para Aplicaciones.</p>
+			<p class="fragment" data-fragment-index="2">Es muy rápido, principalmente porque no gestiona aperturas ni cierres de conexión, simplemente envía y recibe la respuesta(si la hubiera)</p>
 			<ul class="fragment" data-fragment-index="3">
 				<li>DNS</li>
 				<li>DB Query</li>
 				<li>Videollamadas</li>
 			</ul>
-			<footer>10</footer>
+      <footer><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@anniespratt?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Annie Spratt"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Annie Spratt</span>
+			<img src="images/postcard.png" alt="" class="img img-responsive pull-right" /></a>10</footer>
 		</section>
 		<section>
 			<h3>TCP 101</h3>
@@ -307,6 +325,7 @@
 				<li>Youtube</li>
 			</ul>
 
+      <img src="images/tcp-joke.jpg" alt="" class="img img-responsive pull-center" />
 			<footer>11</footer>
 		</section>
 		<section>
@@ -334,13 +353,14 @@
 
 		<section><h4>¿Qué pasa cuando nos conectamos a una web?</h4>
 			<section>
-				<img src="images/lmgtfy.gif" alt="Let me Google that for you" width="100%">
+				<img src="images/lmgtfy.gif" alt="Let me Google that for you" height="80%">
+        <iframe src="https://giphy.com/embed/AuIvUrZpzBl04" width="480" height="20%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/AuIvUrZpzBl04">via GIPHY</a></p>
 			</section>
 			<section>
 				<h3>El Modelo por Capas TCP/IP</h3>
 				<img src="images/layers.jpg" alt="">
 			</section>
-			<section>El Navegador hace una peticion por HTTP a la direcci'on  "https://wordpress.org/"</section>
+			<section>El Navegador hace una peticion por HTTP a la dirección  "https://wordpress.org/"</section>
 			<section>
 				<p class="fragment" data-fragment-index="1">HTTP (Implementado por el navegador)pregunta al Resolver del SO por la IP asociada al hostname</p>
 				<p class="fragment" data-fragment-index="2">Que es...</p>
@@ -356,7 +376,8 @@
 			</section>
 			<footer>18</footer>
 		</section>
-
+    <section><h2>Casos prácticos</h2></section>
+    <section><h2>¿Preguntas?</h2></section>
 		<section><h1>Thank you!</h1><h1>Спасибо!</h1><h1>Gracias!</h1></section>
 
 	</div>
